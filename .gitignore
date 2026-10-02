@@ -1,0 +1,8 @@
+# OS/editor files
+.DS_Store
+*~
+*.swp
+*.swo
+
+# Local-only scratch/export files
+chern_slope_research_cells.sage
