@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Chern Slope Research Lab</title>
+  <meta name="description" content="A browser research notebook for exact SageMath experiments with projective line arrangements and Chern slopes." />
+  <link rel="stylesheet" href="https://sagecell.sagemath.org/static/sagecell_embed.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-mark">CS</div>
+      <div>
+        <div class="eyebrow">SageMath · exact arithmetic · line arrangements</div>
+        <h1>Chern Slope Research Lab</h1>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="exportBtn" class="button ghost">Export cells</button>
+      <label class="button ghost file-button">
+        Import .sage
+        <input id="importInput" type="file" accept=".sage,.py,.txt" hidden />
+      </label>
+      <button id="resetBtn" class="button danger">Reset session</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero panel">
+      <div>
+        <div class="kicker">OPEN PROBLEM 7</div>
+        <h2>Explore rational line arrangements toward <span class="math-accent">5/2</span></h2>
+        <p>
+          The permanent engine is loaded unchanged. Initialize it once, then use the cells below like a lightweight Sage notebook.
+          All research cells share one live SageMath session through SageMathCell.
+        </p>
+      </div>
+      <div class="target-card">
+        <div class="target-label">Current candidate</div>
+        <div class="target-value">43/18</div>
+        <div class="target-decimal">≈ 2.388888…</div>
+        <div class="target-gap">benchmark 19/8 → +1/72</div>
+      </div>
+    </section>
+
+    <section class="status-grid">
+      <div class="status-card panel">
+        <div class="status-label">Engine integrity</div>
+        <div id="hashStatus" class="status-value pending">Checking…</div>
+        <code id="engineHash">4595f2bd6bc5eac7ade45a9d7fd0efbfebd261a8e38f59e2e59937fb6e535e08</code>
+      </div>
+      <div class="status-card panel">
+        <div class="status-label">Computation</div>
+        <div class="status-value">SageMathCell</div>
+        <div class="status-note">Runs remotely; no local Sage install required.</div>
+      </div>
+      <div class="status-card panel">
+        <div class="status-label">Notebook state</div>
+        <div class="status-value">Linked session</div>
+        <div class="status-note">Definitions persist between cells until the page is reloaded.</div>
+      </div>
+    </section>
+
+    <section class="panel engine-panel">
+      <div class="section-heading">
+        <div>
+          <div class="kicker">01 · CORE ENGINE</div>
+          <h3>Original SageMath engine</h3>
+          <p>Locked. The file is fetched verbatim and executed without modification.</p>
+        </div>
+        <button id="toggleEngineSource" class="button ghost small">View source</button>
+      </div>
+
+      <div id="engineSourceWrap" class="engine-source-wrap hidden">
+        <pre id="engineSource" class="engine-source">Loading engine source…</pre>
+      </div>
+
+      <div class="engine-run-card">
+        <div class="engine-run-copy">
+          <strong>Initialize before running research cells.</strong>
+          <span>Wait for <code>ENGINE READY</code> below the button. The first evaluation starts the shared Sage kernel and defines the complete research engine.</span>
+        </div>
+        <div id="engineCell" class="sage-engine-cell"></div>
+      </div>
+    </section>
+
+    <section class="panel notebook-panel">
+      <div class="section-heading notebook-heading">
+        <div>
+          <div class="kicker">02 · RESEARCH NOTEBOOK</div>
+          <h3>Experimental Sage cells</h3>
+          <p>Define new families, functions, searches, or proofs here. Cell text is saved in this browser.</p>
+        </div>
+        <div class="notebook-actions">
+          <button id="candidateBtn" class="button secondary">Insert 43/18 experiment</button>
+          <button id="addCellBtn" class="button primary">+ Add cell</button>
+        </div>
+      </div>
+
+      <div id="notice" class="notice">
+        <strong>Workflow:</strong> initialize the engine above → run cells top-to-bottom → export useful experiments as a <code>.sage</code> file.
+      </div>
+
+      <div id="cells" class="cells"></div>
+
+      <button id="addCellBottomBtn" class="add-bottom">+ Add another Sage cell</button>
+    </section>
+
+    <section class="panel about-panel">
+      <div class="kicker">NOTES</div>
+      <h3>What this prototype is — and is not</h3>
+      <div class="about-grid">
+        <div>
+          <strong>Good for</strong>
+          <p>Sharing calculations with teachers, trying new code interactively, reproducing exact arithmetic, and publishing a zero-maintenance static site.</p>
+        </div>
+        <div>
+          <strong>Session model</strong>
+          <p>Cell source is stored locally in your browser. The live Sage kernel is temporary; reload the page and initialize again.</p>
+        </div>
+        <div>
+          <strong>Internet requirement</strong>
+          <p>The webpage itself is static, but evaluations are sent to the public SageMathCell service.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Chern Slope Research Lab</span>
+    <span>Static GitHub Pages frontend · SageMathCell backend</span>
+  </footer>
+
+  <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
