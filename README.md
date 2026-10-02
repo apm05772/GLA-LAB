@@ -6,15 +6,12 @@ A static browser notebook for SageMath experiments with projective line arrangem
 
 - **Frontend:** plain HTML/CSS/JavaScript; suitable for GitHub Pages.
 - **Computation:** public [SageMathCell](https://sagecell.sagemath.org/) servers.
-- **Core engine:** `engine_original.sage`, preserved byte-for-byte from the research engine.
+- **Core engine:** the exact research engine is stored losslessly as `engine_original.sage.gz` and decompressed in the browser before execution.
+- **Engine integrity:** the reconstructed source must have SHA-256 `4595f2bd6bc5eac7ade45a9d7fd0efbfebd261a8e38f59e2e59937fb6e535e08`.
 - **Research cells:** linked SageMathCell cells sharing one Sage session.
 - **Persistence:** cell source is saved in the browser's local storage; the live Sage kernel is temporary.
 
-Engine SHA-256:
-
-```text
-4595f2bd6bc5eac7ade45a9d7fd0efbfebd261a8e38f59e2e59937fb6e535e08
-```
+The gzip asset is only a storage/deployment format. The Sage source sent for execution is the original 77,785-byte engine after lossless decompression and SHA-256 verification.
 
 ## Run locally
 
@@ -41,16 +38,17 @@ An internet connection is required when running Sage cells because execution hap
 ## Research workflow
 
 1. Open the page.
-2. Click **Initialize research engine** and wait for `ENGINE READY — core functions loaded successfully`.
-3. Add/run Sage cells below it.
-4. Definitions persist between linked cells during the live session.
-5. Use **Export cells** to save experimental code as a `.sage` file.
-6. Reload/reset to obtain a clean Sage session; your cell text remains stored in the browser.
+2. Confirm **Engine integrity** says `Verified unchanged`.
+3. Click **Initialize research engine** and wait for `ENGINE READY — core functions loaded successfully`.
+4. Add/run Sage cells below it.
+5. Definitions persist between linked cells during the live session.
+6. Use **Export cells** to save experimental code as a `.sage` file.
+7. Reload/reset to obtain a clean Sage session; your cell text remains stored in the browser.
 
 ## GitHub Pages
 
-See `GITHUB_PAGES.md` for exact publishing steps.
+See `GITHUB_PAGES.md` for publishing steps.
 
 ## Implementation note
 
-Research cells are embedded using the documented SageMathCell container pattern rather than attaching the cell UI directly to a textarea. All cells use the same `linkKey`, so definitions are shared throughout the live session.
+Research cells use the documented SageMathCell container embedding pattern. Every cell uses the same `linkKey`, so definitions created in one cell remain available to later cells during the session.
