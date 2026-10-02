@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const ENGINE_FILE = "engine_original.sage";
+  const ENGINE_FILES = ["engine_part_1.txt", "engine_part_2.txt", "engine_part_3.txt"];
   const EXPECTED_HASH = "4595f2bd6bc5eac7ade45a9d7fd0efbfebd261a8e38f59e2e59937fb6e535e08";
   const LINK_KEY = "chern-slope-research-lab-v1";
   const STORAGE_KEY = "chernSlopeLab.cells.v1";
@@ -168,9 +168,20 @@
   async function initialize() {
     await waitForSageCell();
 
-    const response = await fetch(ENGINE_FILE, { cache: "no-store" });
-    if (!response.ok) throw new Error(`Could not load ${ENGINE_FILE}`);
-    engineSource = await response.text();
+    const responses = await Promise.all(ENGINE_FILES.map(name => fetch(name, { cache: "no-store" })));
+    const failed = responses.findIndex(r => !r.ok);
+    if (failed !== -1) throw new Error(`Could not load ${ENGINE_FILES[failed]}`);
+
+    const encodedParts = await Promise.all(responses.map(r => r.text()));
+    const encoded = encodedParts.map(x => x.trim()).join("");
+    const compressed = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
+
+    if (typeof DecompressionStream !== "function") {
+      throw new Error("This browser does not support gzip decompression. Please use a current Firefox, Chrome, or Safari.");
+    }
+
+    const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream("gzip"));
+    engineSource = await new Response(stream).text();
     engineSourceEl.textContent = engineSource;
 
     const hash = await sha256(engineSource);
