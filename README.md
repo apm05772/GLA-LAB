@@ -27,11 +27,7 @@ or:
 python3 -m http.server 8000
 ```
 
-Then open:
-
-```text
-http://localhost:8000
-```
+Then open `http://localhost:8000`.
 
 An internet connection is required when running Sage cells because execution happens on SageMathCell servers.
 
@@ -48,7 +44,3 @@ An internet connection is required when running Sage cells because execution hap
 ## GitHub Pages
 
 See `GITHUB_PAGES.md` for publishing steps.
-
-## Implementation note
-
-Research cells use the documented SageMathCell container embedding pattern. Every cell uses the same `linkKey`, so definitions created in one cell remain available to later cells during the session.

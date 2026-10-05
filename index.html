@@ -4,21 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <title>Chern Slope Research Lab</title>
-  <meta name="description" content="A browser research notebook for exact SageMath experiments with projective line arrangements and Chern slopes." />
+  <title>G.L.A Research Lab</title>
+  <meta name="description" content="A browser-based SageMath research environment for the geography of projective line arrangements." />
   <link rel="stylesheet" href="https://sagecell.sagemath.org/static/sagecell_embed.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="ambient ambient-a"></div>
-  <div class="ambient ambient-b"></div>
-
   <header class="topbar">
     <div class="brand-wrap">
-      <div class="brand-mark">CS</div>
+      <div class="brand-mark">GLA</div>
       <div>
-        <div class="eyebrow">SageMath · exact arithmetic · line arrangements</div>
-        <h1>Chern Slope Research Lab</h1>
+        <h1>G.L.A Research Lab</h1>
       </div>
     </div>
     <div class="top-actions">
@@ -34,18 +30,19 @@
   <main class="shell">
     <section class="hero panel">
       <div>
-        <div class="kicker">OPEN PROBLEM 7</div>
-        <h2>Explore rational line arrangements toward <span class="math-accent">5/2</span></h2>
+        <div class="kicker">GEOGRAPHY OF LINE ARRANGEMENTS</div>
+        <h2>Exact computational workspace for <span class="math-accent">line-arrangement research</span></h2>
         <p>
-          The permanent engine is loaded unchanged. Initialize it once, then use the cells below like a lightweight Sage notebook.
-          All research cells share one live SageMath session through SageMathCell.
+          G.L.A Research Lab is a lightweight browser notebook built around a permanent SageMath engine for projective line arrangements over exact rational arithmetic. Initialize the engine once, then define new families, compute incidence data, evaluate logarithmic Chern invariants, run parameter searches, interpolate formulas, and build new research code in linked Sage cells.
         </p>
       </div>
-      <div class="target-card">
-        <div class="target-label">Current candidate</div>
-        <div class="target-value">43/18</div>
-        <div class="target-decimal">≈ 2.388888…</div>
-        <div class="target-gap">benchmark 19/8 → +1/72</div>
+      <div class="scope-card">
+        <div class="scope-label">Engine scope</div>
+        <div class="scope-value">P<sup>2</sup>(Q)</div>
+        <div class="scope-line">Exact QQ / ZZ arithmetic</div>
+        <div class="scope-line">Projective incidence data</div>
+        <div class="scope-line">Log Chern invariants</div>
+        <div class="scope-line">+ More in the future</div>
       </div>
     </section>
 
@@ -58,13 +55,59 @@
       <div class="status-card panel">
         <div class="status-label">Computation</div>
         <div class="status-value">SageMathCell</div>
-        <div class="status-note">Runs remotely; no local Sage install required.</div>
+        <div class="status-note">Sage runs remotely, so no local Sage installation is required.</div>
       </div>
       <div class="status-card panel">
         <div class="status-label">Notebook state</div>
-        <div class="status-value">Linked session</div>
-        <div class="status-note">Definitions persist between cells until the page is reloaded.</div>
+        <div class="status-value">Linked Sage session</div>
+        <div class="status-note">Definitions and variables persist between cells until the live session is reset.</div>
       </div>
+    </section>
+
+    <section class="panel workflow-panel">
+      <div class="section-heading">
+        <div>
+          <div class="kicker">HOW IT WORKS</div>
+          <h3>One engine, one shared research session</h3>
+        </div>
+      </div>
+      <div class="workflow-grid">
+        <div class="workflow-step">
+          <span class="step-number">01</span>
+          <strong>Initialize</strong>
+          <p>The original engine is loaded, SHA-256 checked, and executed in a SageMathCell kernel.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="step-number">02</span>
+          <strong>Research</strong>
+          <p>Every notebook cell is linked to that same kernel, so functions and variables defined earlier remain available later.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="step-number">03</span>
+          <strong>Preserve</strong>
+          <p>Cell source is saved in your browser. Export useful work as a <code>.sage</code> file whenever you want a portable copy. ('Export cells' button at the top)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel workflow-panel">
+      <div class="section-heading">
+        <div>
+          <div class="kicker">Latest Notes</div>
+          <h3>Here's what's new:</h3>
+        </div>
+      </div>
+      <!-- ADD NOTES ABOVE THIS ONE SO THAT THE OLDEST ONES GO TO THE RIGHT !-->
+      <!-- START OF NOTE !-->
+      <div class="workflow-grid">
+        <div class="workflow-step">
+          <span class="step-number">01</span>
+          <strong>October 5, 2026</strong>
+          <p>The grand opening of the G.L.A Research Lab. While not public, I'd consider this it's birth. This is also the first note, so yay. I'll also take the opportunity to add a button for a construction of a family with an accumulation point of 43/18. Currently, the highest known (previous was 19/8).</p>
+          <button id="high1Btn" class="button secondary">Insert 43/18 family</button>
+        </div>
+      </div>
+      <!-- END OF NOTE !-->
     </section>
 
     <section class="panel engine-panel">
@@ -72,7 +115,7 @@
         <div>
           <div class="kicker">01 · CORE ENGINE</div>
           <h3>Original SageMath engine</h3>
-          <p>Locked. The file is fetched verbatim and executed without modification.</p>
+          <p>Locked. The mathematical engine is loaded and executed without modification.</p>
         </div>
         <button id="toggleEngineSource" class="button ghost small">View source</button>
       </div>
@@ -95,16 +138,16 @@
         <div>
           <div class="kicker">02 · RESEARCH NOTEBOOK</div>
           <h3>Experimental Sage cells</h3>
-          <p>Define new families, functions, searches, or proofs here. Cell text is saved in this browser.</p>
+          <p>Define new arrangements, functions, searches, symbolic computations, or proof checks here. Cell text is saved in this browser.</p>
         </div>
         <div class="notebook-actions">
-          <button id="candidateBtn" class="button secondary">Insert 43/18 experiment</button>
+          <button id="templateBtn" class="button secondary">Insert analysis template</button>
           <button id="addCellBtn" class="button primary">+ Add cell</button>
         </div>
       </div>
 
       <div id="notice" class="notice">
-        <strong>Workflow:</strong> initialize the engine above → run cells top-to-bottom → export useful experiments as a <code>.sage</code> file.
+        <strong>Workflow:</strong> initialize the engine → run cells top-to-bottom → use engine functions freely → export useful experiments as a <code>.sage</code> file.
       </div>
 
       <div id="cells" class="cells"></div>
@@ -112,29 +155,155 @@
       <button id="addCellBottomBtn" class="add-bottom">+ Add another Sage cell</button>
     </section>
 
+    <section class="panel reference-panel">
+      <div class="section-heading">
+        <div>
+          <div class="kicker">03 · ENGINE REFERENCE</div>
+          <h3>Function Bestiary</h3>
+          <p>The current engine exposes 54 functions. This reference follows the names and purposes defined in the loaded engine.</p>
+        </div>
+        <div class="function-count">54 functions</div>
+      </div>
+
+      <div class="reference-intro">
+        <p><strong>Line representation.</strong> Projective lines are represented by triples <code>(A, B, C)</code> for the equation <code>Ax + By + Cz = 0</code>, normalized up to nonzero scalar.</p>
+        <p><strong>Exact arithmetic.</strong> Mathematical comparisons and invariants use Sage <code>QQ</code>/<code>ZZ</code>. Decimal values are intended for display only.</p>
+        <p><strong>Incidence engine.</strong> The main intersection routine uses pair counting: a point of multiplicity <code>k</code> occurs as the intersection of <code>binomial(k,2)</code> unordered line pairs.</p>
+      </div>
+
+      <div class="api-groups">
+        <details class="api-group" open>
+          <summary>Exact arithmetic & projective primitives <span>9</span></summary>
+          <div class="api-list">
+            <div class="api-item"><code>exact_decimal(s)</code><p>Convert a terminating decimal string to an exact rational.</p></div>
+            <div class="api-item"><code>decimal(q, digits=40)</code><p>Produce a high-precision decimal string for display.</p></div>
+            <div class="api-item"><code>finite_rational(x)</code><p>Test whether a value is a finite rational.</p></div>
+            <div class="api-item"><code>exact_distance(a, b)</code><p>Exact absolute difference between rational values.</p></div>
+            <div class="api-item"><code>normalize_projective_vector(v)</code><p>Normalize a nonzero vector in <code>Q^3</code> up to scalar.</p></div>
+            <div class="api-item"><code>line_intersection(L1, L2)</code><p>Compute the projective intersection of two lines.</p></div>
+            <div class="api-item"><code>point_on_line(P, L)</code><p>Exact incidence test for a projective point and line.</p></div>
+            <div class="api-item"><code>multiplicity_from_pair_count(pair_count)</code><p>Recover point multiplicity from the number of intersecting line pairs.</p></div>
+            <div class="api-item"><code>intersection_data(lines, store_points=True)</code><p>Compute projective intersection multiplicities using pair counting.</p></div>
+          </div>
+        </details>
+
+        <details class="api-group">
+          <summary>Incidence verification & combinatorics <span>8</span></summary>
+          <div class="api-list">
+            <div class="api-item"><code>verify_incidence_slow(lines, tk)</code><p>Independent slower incidence verification for debugging or proof checks.</p></div>
+            <div class="api-item"><code>arrangement_statistics(lines)</code><p>Normalize lines and detect duplicate projective lines.</p></div>
+            <div class="api-item"><code>basic_combinatorial_checks(lines, tk)</code><p>Run exact consistency checks such as the pair-count identity.</p></div>
+            <div class="api-item"><code>combinatorial_signature(tk)</code><p>Return a canonical representation of multiplicity data.</p></div>
+            <div class="api-item"><code>multiplicity_spectrum(tk)</code><p>Return the multiplicities that actually occur.</p></div>
+            <div class="api-item"><code>combinatorial_totals(tk)</code><p>Compute aggregate combinatorial quantities from <code>t_k</code>.</p></div>
+            <div class="api-item"><code>standard_geography_condition(lines, tk)</code><p>Check the engine's standard nontriviality condition for geography computations.</p></div>
+            <div class="api-item"><code>geography_admissible(lines, tk)</code><p>Compatibility wrapper for the geography admissibility check.</p></div>
+          </div>
+        </details>
+
+        <details class="api-group">
+          <summary>Logarithmic geography invariants <span>2</span></summary>
+          <div class="api-list">
+            <div class="api-item"><code>log_chern_numbers(lines, tk)</code><p>Compute the exact logarithmic Chern numbers <code>c̄₁²</code> and <code>c̄₂</code>.</p></div>
+            <div class="api-item"><code>chern_slope(lines, tk)</code><p>Compute the exact logarithmic Chern slope <code>c̄₁² / c̄₂</code>.</p></div>
+          </div>
+        </details>
+
+        <details class="api-group">
+          <summary>Built-in example families <span>6</span></summary>
+          <div class="api-list">
+            <div class="api-item"><code>family_A(n, **params)</code><p>Built-in experimental family A.</p></div>
+            <div class="api-item"><code>family_B(n, **params)</code><p>Built-in experimental family B.</p></div>
+            <div class="api-item"><code>family_C(n, **params)</code><p>Built-in experimental family C.</p></div>
+            <div class="api-item"><code>family_D(n, **params)</code><p>Built-in experimental family D.</p></div>
+            <div class="api-item"><code>family_E(n, **params)</code><p>Built-in experimental family E.</p></div>
+            <div class="api-item"><code>family_RT(n, **params)</code><p>Built-in rational right-triangle comparison family.</p></div>
+          </div>
+        </details>
+
+        <details class="api-group">
+          <summary>Family registry & generation <span>6</span></summary>
+          <div class="api-list">
+            <div class="api-item"><code>add_family(...)</code><p>Register a new parametrized family and its metadata in the family database.</p></div>
+            <div class="api-item"><code>list_families()</code><p>Print all registered families.</p></div>
+            <div class="api-item"><code>show_family(key)</code><p>Display the exact parametrization and metadata of one family.</p></div>
+            <div class="api-item"><code>generate_family(key, n, family_params=None)</code><p>Generate and validate one registered family at parameter <code>n</code>.</p></div>
+            <div class="api-item"><code>print_family_lines(key, n, family_params=None)</code><p>Print the actual projective lines generated by a family.</p></div>
+            <div class="api-item"><code>analyze_family_at_n(key, n, family_params=None, store_points=True, run_slow_check=False)</code><p>Fully analyze one registered family at one parameter value.</p></div>
+          </div>
+        </details>
+
+        <details class="api-group">
+          <summary>Search, sequences & numerical exploration <span>11</span></summary>
+          <div class="api-list">
+            <div class="api-item"><code>print_result(result)</code><p>Human-readable display of one analysis result.</p></div>
+            <div class="api-item"><code>search_family(...)</code><p>Search a registered family over a range of parameter values with optional geography filters.</p></div>
+            <div class="api-item"><code>search_all_families(...)</code><p>Run a search over every registered family.</p></div>
+            <div class="api-item"><code>slope_sequence(...)</code><p>Return an exact sequence of Chern slopes for a family.</p></div>
+            <div class="api-item"><code>print_slope_table(...)</code><p>Print exact and high-precision slope values.</p></div>
+            <div class="api-item"><code>scan_for_high_slopes(...)</code><p>Search for slopes strictly above a chosen threshold.</p></div>
+            <div class="api-item"><code>scan_for_relevant_high_slopes(...)</code><p>Search above a threshold while enforcing the engine's geography relevance checks.</p></div>
+            <div class="api-item"><code>scan_near_target(...)</code><p>Search for slopes within a chosen exact tolerance of a target.</p></div>
+            <div class="api-item"><code>estimate_accumulation_point(...)</code><p>Inspect numerical tail behavior of a parametrized family.</p></div>
+            <div class="api-item"><code>parameter_grid(grid)</code><p>Expand a dictionary of parameter choices into parameter combinations.</p></div>
+            <div class="api-item"><code>search_parameter_grid(...)</code><p>Search a multi-parameter family over a finite parameter grid.</p></div>
+          </div>
+        </details>
+
+        <details class="api-group">
+          <summary>Symbolic formulas & interpolation <span>7</span></summary>
+          <div class="api-list">
+            <div class="api-item"><code>exact_rational_function_limit_at_infinity(numerator, denominator)</code><p>Compute an exact limit at infinity for a rational function.</p></div>
+            <div class="api-item"><code>symbolic_chern_from_tk(d_formula, tk_formulas)</code><p>Construct symbolic Chern formulas from symbolic line-count and multiplicity formulas.</p></div>
+            <div class="api-item"><code>verify_RT_symbolically()</code><p>Verify the engine's stored right-triangle formulas symbolically.</p></div>
+            <div class="api-item"><code>verify_RT_numerically(N=10)</code><p>Compare brute-force incidence data with the stored formulas over a numerical range.</p></div>
+            <div class="api-item"><code>discover_polynomial_formula(...)</code><p>Experimentally search for a low-degree polynomial formula for <code>d(n)</code> or <code>t_k(n)</code>.</p></div>
+            <div class="api-item"><code>interpolate_tk(...)</code><p>Convenience wrapper for interpolating a multiplicity formula <code>t_k(n)</code>.</p></div>
+            <div class="api-item"><code>interpolate_d(...)</code><p>Convenience wrapper for interpolating the number of lines <code>d(n)</code>.</p></div>
+          </div>
+        </details>
+
+        <details class="api-group">
+          <summary>Export, reporting & diagnostics <span>5</span></summary>
+          <div class="api-list">
+            <div class="api-item"><code>export_results_csv(results, filename)</code><p>Export a result list to CSV.</p></div>
+            <div class="api-item"><code>experiment(key, N, tail, family_params=None)</code><p>Run the engine's convenience multi-stage experiment workflow.</p></div>
+            <div class="api-item"><code>research_report(key, N, family_params=None)</code><p>Generate a compact research-oriented report for one family.</p></div>
+            <div class="api-item"><code>run_self_tests(RT_N=...)</code><p>Run the main internal consistency tests.</p></div>
+            <div class="api-item"><code>startup_summary()</code><p>Display the research environment and useful commands.</p></div>
+          </div>
+        </details>
+      </div>
+      <p class="reference-note">Some convenience functions appear in more than one conceptual role above. Function names and core purposes are taken from the current engine; use <strong>View source</strong> for full signatures, defaults, and implementation details.</p>
+    </section>
+
     <section class="panel about-panel">
-      <div class="kicker">NOTES</div>
-      <h3>What this prototype is — and is not</h3>
+      <div class="kicker">ENVIRONMENT</div>
+      <h3>Research model</h3>
       <div class="about-grid">
         <div>
-          <strong>Good for</strong>
-          <p>Sharing calculations with teachers, trying new code interactively, reproducing exact arithmetic, and publishing a zero-maintenance static site.</p>
+          <strong>Intended purpose</strong>
+          <p>The notebook is intended for broad computational work on projective line arrangements: incidence structures, multiplicity distributions, logarithmic Chern invariants, parameter families, and asymptotic experiments. This is the first of many Research Labs, so bugs are encouraged to be reported.</p>
         </div>
         <div>
           <strong>Session model</strong>
-          <p>Cell source is stored locally in your browser. The live Sage kernel is temporary; reload the page and initialize again.</p>
+          <p>The live Sage kernel is temporary. Reloading or resetting starts a new kernel, but the source of your research cells remains saved locally in the browser. This means your cells are auto-saved.</p>
         </div>
         <div>
           <strong>Internet requirement</strong>
-          <p>The webpage itself is static, but evaluations are sent to the public SageMathCell service.</p>
+          <p>The frontend is a static webpage. Sage evaluations are executed by the public SageMathCell service, so computation requires an internet connection.</p>
+        </div>
+        <div>
+          <strong>Usage instructions</strong>
+          <p>To use, one must first initialize the math engine. Afterwards, simply create cells and enter python code into them before running. Guide yourself using the function manual above, as many of these functions are useful for research. However, it is encouraged to use your own functions as well.</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <span>Chern Slope Research Lab</span>
-    <span>Static GitHub Pages frontend · SageMathCell backend</span>
+    <span>G.L.A Research Lab</span>
+    <span>Static frontend · SageMathCell computation</span>
   </footer>
 
   <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
