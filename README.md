@@ -41,6 +41,4 @@ An internet connection is required when running Sage cells because execution hap
 6. Use **Export cells** to save experimental code as a `.sage` file.
 7. Reload/reset to obtain a clean Sage session; your cell text remains stored in the browser.
 
-## GitHub Pages
-
-See `GITHUB_PAGES.md` for publishing steps.
+This is meant to help with any research you might have by providing the engine that has helped me so far in this field. Given that it works using SageMath, it can obviously work with a lot more, but it's meant to be specialized due to the large amount of uniquely defined functions. 
