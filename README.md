@@ -1,4 +1,4 @@
-# Chern Slope Research Lab
+# Geography of Line Arrangements Lab
 
 A static browser notebook for SageMath experiments with projective line arrangements and logarithmic Chern slopes.
 
