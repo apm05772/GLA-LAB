@@ -1,6 +1,8 @@
-# Geography of Line Arrangements Lab
+# G.L.A. Research Lab — Geography of Line Arrangements
 
-A static browser notebook for SageMath experiments with projective line arrangements and logarithmic Chern slopes.
+**G.L.A. Research Lab** is a browser-based workspace for **computational research in pure mathematics** and a home for selected mathematical notes and findings. It combines interactive SageMath experimentation with a static website where research updates can be shared once they are ready for publication. Its current mathematical emphasis is **projective line arrangements, incidence geometry, and logarithmic Chern invariants**.
+
+The research notebook and the notes section serve different purposes: SageMath cells support exploration and computation, while the website presents manually curated updates. Numerical or symbolic experiments do not, by themselves, constitute a proof.
 
 ## Architecture
 
@@ -41,4 +43,8 @@ An internet connection is required when running Sage cells because execution hap
 6. Use **Export cells** to save experimental code as a `.sage` file.
 7. Reload/reset to obtain a clean Sage session; your cell text remains stored in the browser.
 
-This is meant to help with any research you might have by providing the engine that has helped me so far in this field. Given that it works using SageMath, it can obviously work with a lot more, but it's meant to be specialized due to the large amount of uniquely defined functions. 
+## Purpose and publication
+
+The lab is designed to make specialized computational tools accessible through a browser and to communicate selected mathematical work. Although SageMath supports many areas of mathematics, the currently bundled engine and interface are specialized for line-arrangement research; broader use may require additional code.
+
+The **Latest Notes** area is updated through the website source, not automatically from notebook computations. Research findings should be reviewed and distinguished from conjectures or preliminary computational evidence before being presented publicly.
